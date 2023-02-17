@@ -4,21 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>SearchMovie</title>
   </head>
   <body>
     <header class="container">
       <div class="header__content">
-        <a href="index.html" class="header__logo"><span>Search</span>Movie</a>
+        <a href="index.html" class="header__logo"><span class="logo-span">Search</span>Movie</a>
         <form>
           <input type="text" class="header__search" placeholder="Поиск" />
+          <span class="material-symbols-outlined" id="search">search</span>
         </form>
       </div>
     </header>
     <div class="container">
       <div class="movies"></div>
+      <div class="modal"></div>
+      <div class="pagination">
+        <input type="number" max="20" min="1" id="pages">
+        <p> из 20</p>
+      </div>
     </div>
-
     <script src="main.js"></script>
   </body>
 </html>

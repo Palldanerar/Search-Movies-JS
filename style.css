@@ -1,14 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
   background-color: #1a191f;
+}
+
+form {
+  display: flex;
+  align-items: center;
 }
 
 .container {
@@ -24,10 +35,6 @@ body {
   height: 60px;
 }
 
-.header__content span {
-    color: orange;
-}
-
 .header__logo {
   font-size: 32px;
   text-decoration: none;
@@ -39,6 +46,16 @@ body {
   border: 2px solid #1a191f;
   border-radius: 5px;
   outline: none;
+}
+
+.logo-span {
+  color: orange;
+}
+
+.material-symbols-outlined {
+  color: white;
+  margin-left: 20px;
+  cursor: pointer;
 }
 
 .movies {
@@ -111,24 +128,83 @@ body {
 }
 
 .movie__average--green {
-  border: 2px solid green;
+  border: 1px solid green;
 }
 
 .movie__average--orange {
-  border: 2px solid orange;
+  border: 1px solid orange;
 }
 
 .movie__average--red {
-  border: 2px solid red;
+  border: 1px solid red;
 }
 
-.movie__average--gray {
-    border: 2px solid gray;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: width 2s;
 }
 
-.no-search {
-    margin-top: 240px;
-    color: white;
-    font-size: 32px;
-    font-weight: 600;
+.modal--show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__card {
+  background-color: #ffffff;
+  max-width: 600px;
+  padding: 16px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  background-color: #1a191f;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__movie-backdrop {
+  width: 200px;
+  margin: 0 auto
+}
+
+.modal__movie-info {
+  margin-left: 20px;
+}
+
+.modal__button-close {
+  padding: 5px;
+  margin: 10px;
+  align-self: center;
+}
+
+.modal__movie-site {
+  color: #ffd80e
+}
+
+ul li {
+  padding: 5px;
+}
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.pagination input {
+  width: 20px;
+  outline: none;
+  border: none;
 }
