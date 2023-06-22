@@ -1,15 +1,15 @@
-let page = 1
+let page: number = 1
 
-const API_KEY = "c5595ec1-0f8b-4b72-88a8-8fcb04054748";
-const API_URL_POPULAR =
+const API_KEY: string = "c5595ec1-0f8b-4b72-88a8-8fcb04054748";
+const API_URL_POPULAR: string  =
   `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1`;
-const API_URL_SEARCH =
+const API_URL_SEARCH: string  =
   "https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=";
-const API_URL_MOVIE_DETAILS = "https://kinopoiskapiunofficial.tech/api/v2.2/films/"
+const API_URL_MOVIE_DETAILS: string  = "https://kinopoiskapiunofficial.tech/api/v2.2/films/"
 
 getMovies(API_URL_POPULAR);
 
-async function getMovies(url) {
+async function getMovies(url: string) {
   const resp = await fetch(url, {
     headers: {
       "Content-Type": "application/json",
@@ -20,7 +20,7 @@ async function getMovies(url) {
   showMovies(respData);
 }
 
-function getClassByRate(vote) {
+function getClassByRate(vote : number) {
   if (vote >= 7) {
     return "green";
   } else if (vote > 5) {
