@@ -1,15 +1,15 @@
-let page: number = 1
+let page = 1
 
-const API_KEY: string = "c5595ec1-0f8b-4b72-88a8-8fcb04054748";
-const API_URL_POPULAR: string  =
+const API_KEY = "c5595ec1-0f8b-4b72-88a8-8fcb04054748";
+const API_URL_POPULAR =
   `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1`;
-const API_URL_SEARCH: string  =
+const API_URL_SEARCH =
   "https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=";
-const API_URL_MOVIE_DETAILS: string  = "https://kinopoiskapiunofficial.tech/api/v2.2/films/"
+const API_URL_MOVIE_DETAILS = "https://kinopoiskapiunofficial.tech/api/v2.2/films/"
 
 getMovies(API_URL_POPULAR);
 
-async function getMovies(url: string) {
+async function getMovies(url) {
   const resp = await fetch(url, {
     headers: {
       "Content-Type": "application/json",
@@ -20,7 +20,7 @@ async function getMovies(url: string) {
   showMovies(respData);
 }
 
-function getClassByRate(vote : number) {
+function getClassByRate(vote) {
   if (vote >= 7) {
     return "green";
   } else if (vote > 5) {
@@ -51,16 +51,15 @@ function showMovies(data) {
       <div class="movie__info">
         <div class="movie__title">${movie.nameRu}</div>
         <div class="movie__category">${movie.genres.map(
-          (genre) => ` ${genre.genre}`
-        )}</div>
-        ${
-          movie.rating &&
-          `
+      (genre) => ` ${genre.genre}`
+    )}</div>
+        ${movie.rating &&
+      `
         <div class="movie__average movie__average--${getClassByRate(
-          movie.rating
-        )}">${movie.rating}</div>
+        movie.rating
+      )}">${movie.rating}</div>
         `
-        }
+      }
       </div>
         `;
     movieEl.addEventListener("click", () => openModal(movie.filmId))
@@ -92,7 +91,7 @@ async function openModal(id) {
     },
   });
   const respData = await resp.json();
-  
+
   modalEl.classList.add("modal--show");
   document.body.classList.add("stop-scrolling");
 
